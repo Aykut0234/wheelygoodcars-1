@@ -20,10 +20,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create.step1');
-
-
-    Route::post('/cars/create', [CarController::class, 'create_step2'])->name('cars.create.step2');
+    Route::resource("/car", CarController::class);
 });
 
 
